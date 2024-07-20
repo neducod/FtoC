@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Temperature Convertor</title>
+
+  <link rel="shortcut icon" href="./Assets/images.png" type="image/x-icon">
+
+  <style>
+    body{
+      font-family: Arial, Helvetica, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: rgb(215, 183, 214);
+    }
+
+    .converter{
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px hsla(0, 64%, 63%, 0.883);
+    }
+
+    .converter input, .converter select{
+      padding: 10px;
+      margin: 5px 0;
+      width: 100%;
+    }
+
+    .converter button{
+      padding: 10px;
+      width: 100%;
+      background: #9e6792;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+    <div class="converter">
+      <h2>Temperature Converter</h2>
+      <input type="number" id="inputTemp" placeholder="Enter Temperature">
+      <select name="" id="conversionType">
+        <option value="FtoC">Fahrenheit to Celsius</option>
+        <option value="CTof">Celsius to Fahrenheit</option>
+      </select>
+      <button onclick="convertTemperature()">Convert</button>
+      <p id="result"></p>
+      </div>
+
+    <script>
+   
+
+      function convertTemperature() {
+        const inputTemp = document.getElementById('inputTemp').value;
+        const conversionType = document.getElementById('conversionType').value;
+        let result;
+
+        if (conversionType === 'FtoC') {
+          result = (inputTemp - 32) / 1.8;
+          document.getElementById('result').innerText = `${inputTemp}°F is ${result.toFixed(2)}°C`;
+        } else {
+          result = (inputTemp * 1.8) + 32;
+          document.getElementById('result').innerText = `${inputTemp}°C is ${result.toFixed(2)}°F`;
+        }
+      }
+    </script>
+</body>
+</html>
+
